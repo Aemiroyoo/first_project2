@@ -210,6 +210,37 @@ class _QuizPageState extends State<QuizPage> {
                       );
                     }).toList(),
               ),
+              SizedBox(height: 0),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 93,
+                        vertical: 13,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(0, 70, 67, 1),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: RichText(
+                          text: TextSpan(
+                            text: "Next",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: "Baloo2",
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

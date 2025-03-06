@@ -14,11 +14,13 @@ class AppTextStyles {
   static const TextStyle boldText = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
+    fontFamily: 'Baloo2',
   );
   static const TextStyle titleStyle = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.bold,
     color: Colors.white,
+    fontFamily: 'Baloo2',
   );
 }
 
@@ -72,19 +74,19 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                         hintText: 'Lakuna',
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
                             color: const Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
                             color: const Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
                             color: const Color.fromARGB(255, 255, 255, 255),
                             width: 2,
