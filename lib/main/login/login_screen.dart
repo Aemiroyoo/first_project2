@@ -1,10 +1,12 @@
-import 'package:first_project/main/main_screen.dart';
+// import 'package:first_project/main/main_screen.dart';
+import 'package:first_project/main/quiz/quiz_screen.dart';
 import 'package:first_project/main/sign_up/signup_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -25,6 +27,28 @@ class AppTextStyles {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _login() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    // Simpan status login
+    await prefs.setString('email', _emailController.text);
+    await prefs.setString('password', _passwordController.text);
+    await prefs.setBool('is_logged_in', true);
+
+    // Pindah ke halaman utama
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder:
+            (context) => QuizScreen(
+              email: _emailController.text,
+              password: _passwordController.text,
+            ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,27 +164,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
               SizedBox(height: 30),
 
-              GestureDetector(
-                onTap: () {
-                  String email = _emailController.text;
-                  String password = _passwordController.text;
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              MainScreen(email: email, password: password),
-                    ),
-                  );
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 95, vertical: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Center(
+              // GestureDetector(onTap: () {}),
+              ElevatedButton(
+                onPressed: _login,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
                     child: Text(
                       'Login',
                       style: TextStyle(

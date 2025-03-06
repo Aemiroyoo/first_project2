@@ -59,13 +59,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
 
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.pop(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return QuizScreen();
-                      },
-                    ),
+                    // MaterialPageRoute(
+                    //   builder: (context) {
+                    //     return QuizScreen();
+                    //   },
+                    // ),
                   );
                 },
               ),
@@ -218,7 +218,7 @@ class _QuizPageState extends State<QuizPage> {
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 93,
-                        vertical: 13,
+                        vertical: 10,
                       ),
                       decoration: BoxDecoration(
                         color: Color.fromRGBO(0, 70, 67, 1),

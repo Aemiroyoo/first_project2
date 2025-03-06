@@ -1,10 +1,15 @@
+import 'package:first_project/main/login/login_screen.dart';
 import 'package:first_project/main/quiz/quiz_page.dart';
-import 'package:first_project/main/sign_up/signup_screen.dart';
+// import 'package:first_project/main/sign_up/signup_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  final String email;
+  final String password;
+  const QuizScreen({Key? key, required this.email, required this.password})
+    : super(key: key);
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -26,8 +31,27 @@ class AppTextStyles {
 
 class _QuizScreenState extends State<QuizScreen> {
   @override
+  Future<void> _logout(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear(); // Hapus semua data saat logout
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () => _logout(context),
+          ),
+        ],
+      ),
       body: Center(
         child: Container(
           width: double.infinity,
