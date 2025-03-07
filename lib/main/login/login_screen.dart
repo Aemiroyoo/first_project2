@@ -95,11 +95,13 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 10),
               TextField(
                 controller: _emailController,
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   // labelText: 'Email',
                   hintStyle: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                   ),
+
                   hintText: 'Enter Email',
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(
@@ -132,6 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               TextField(
                 controller: _passwordController,
+                style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   // labelText: 'Password',
                   hintText: 'Enter Password',
