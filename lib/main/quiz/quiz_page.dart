@@ -1,3 +1,4 @@
+import 'package:first_project/main.dart';
 import 'package:first_project/main/login/login_screen.dart';
 import 'package:first_project/main/quiz/quiz_screen.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 238, 237, 237),
+        // color: const Color.fromARGB(255, 238, 237, 237),
         child: Padding(
           // padding: const EdgeInsets.all(10),
           padding: const EdgeInsets.only(top: 20),
@@ -55,6 +56,8 @@ class _QuizPageState extends State<QuizPage> {
                         color: Colors.black,
                       ),
                     ),
+                    const SizedBox(width: 105),
+                    ThemeToggleButton(),
                   ],
                 ),
 

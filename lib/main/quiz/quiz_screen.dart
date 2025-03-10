@@ -1,3 +1,4 @@
+import 'package:first_project/main.dart';
 import 'package:first_project/main/login/login_screen.dart';
 import 'package:first_project/main/quiz/quiz_page.dart';
 // import 'package:first_project/main/sign_up/signup_screen.dart';
@@ -46,6 +47,7 @@ class _QuizScreenState extends State<QuizScreen> {
       appBar: AppBar(
         title: const Text("Home"),
         actions: [
+          ThemeToggleButton(),
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () => _logout(context),
@@ -119,34 +121,32 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     ),
                     SizedBox(height: 160),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 93,
-                        vertical: 13,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(248, 198, 96, 1),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: RichText(
-                          text: TextSpan(
-                            text: 'Start',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => QuizPage()),
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 93,
+                          vertical: 13,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(248, 198, 96, 1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: RichText(
+                            text: TextSpan(
+                              text: 'Start',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                            recognizer:
-                                TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => QuizPage(),
-                                      ),
-                                    );
-                                  },
                           ),
                         ),
                       ),
